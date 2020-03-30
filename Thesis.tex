@@ -1,0 +1,97 @@
+\input{config/Config}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Parameter - Hier auf die eigene Arbeit anpassen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\dokumententyp}{Summary}
+\newcommand{\abgabedatum}{\today} 
+\newcommand{\dokumententitel}{International Monetary Fund}
+\newcommand{\dokumentenautor}{Dominik Luz \& Tim-Moritz Blome}
+\newcommand{\dokumentenpruefer}{Susan Kress}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+  colorlinks=false,
+  pdfborder={0 0 0},
+  pdftitle=\dokumententitel,
+  pdfauthor=\dokumentenautor
+} 
+
+\begin{document}
+
+% Römische Seitennummerierung
+\pagenumbering{Roman}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Titelseite
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{chapter/Titelseite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Draft-Einstellungen
+%%
+%% Für die finale Version auskommentieren!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fancyhead[L]{\color{red} Stand: \today~-~\currenttime}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Verzeichnisse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Inhaltsverzeichnis
+\tableofcontents\newpage
+
+% Abkürzungsverzeichnis
+\printglossary[type=\acronymtype, style=mylist, title=Abbreviations, toctitle=Abbreviations]\newpage
+\setcounter{table}{0} % printglossary erzeugt eine Tabelle, die die Nummerierung der "echten" Tabellen durcheinander bringt. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Verzeichnisse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Abbildungsverzeichnis
+%\fancyhead[R]{\listfigurename}
+%\listoffigures\newpage
+
+% Tabellenverzeichnis
+%\fancyhead[R]{\listtablename}
+%\listoftables\newpage
+
+% Quelltextverzeichnis
+\fancyhead[R]{\lstlistlistingname}
+\lstlistoflistings\newpage
+
+% Kapitelüberschriften für den Arbeitstext
+\fancyhead[R]{\leftmark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Inhalt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Arabische Seitennummerierung
+\pagenumbering{arabic} 
+
+\include{chapter/Introduction}
+
+\include{chapter/IMF_Functions}
+
+
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\include{chapter/Anhang}
+
+\include{chapter/Quellenverzeichnis}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{chapter/Ehrenwoertliche_Erklaerung}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
